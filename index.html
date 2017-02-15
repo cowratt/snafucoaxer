@@ -17,9 +17,6 @@ verbrequest.onload = function() {
     var randomLineIndex = Math.floor( Math.random() * fileContentLines.length );
     // extract the value
     var randomLine = fileContentLines[ randomLineIndex ];
-    if(randomLine.charAt(randomLine.length) == ' '){
-    	randomLine = randomLine.substring(0, randomLine.length-1)
-    }
     if(randomLine.charAt(randomLine.length) == 's'){
     	randomLine += "es";
     }
