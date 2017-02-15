@@ -25,7 +25,8 @@ verbrequest.onload = function() {
     	randomLine += "s";
     }
     // add the random line in a div
-    window.verb = randomLine;
+    //window.verb = randomLine;
+    document.getElementById( 'verb' ).innerHTML = randomLine;
 };
 verbrequest.open( 'GET', 'verbs.txt', true );
 verbrequest.send();
@@ -42,7 +43,8 @@ nounrequest.onload = function() {
     var randomLine = fileContentLines[ randomLineIndex ];
 
     // add the random line in a div
-    window.noun = randomLine;
+    //window.noun = randomLine;
+    document.getElementById( 'noun' ).innerHTML = randomLine;
 };
 nounrequest.open( 'GET', 'nouns.txt', true );
 nounrequest.send();
@@ -62,7 +64,7 @@ function resnafu(){
 	<h2><center>With any luck, this'll REALLY coax your snafu</center></h2>
 </div>
 <div id="snafu">
-<h2><center>This Really <script type="text/javascript">document.write(verb);</script> my <script type="text/javascript">document.write(noun);</script></center></h2>
+<h2><center>This Really <a id="verb">...</a> my <a id="noun">...</a></center></h2>
 
 <center><button onclick="resnafu()">Click me!</button></center>
 </div>
