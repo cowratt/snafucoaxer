@@ -2,9 +2,10 @@
 <html>
 <head>
 	<title>SNAFU COAXER</title>
+	<link href="main.css" rel="stylesheet">
 	<script type="text/javascript">
-var noun;
-var verb;
+//var noun = "test";
+//var verb = "test2";
 
 var verbrequest = new XMLHttpRequest();
 verbrequest.onload = function() {
@@ -24,7 +25,7 @@ verbrequest.onload = function() {
     	randomLine += "s";
     }
     // add the random line in a div
-    verb = randomLine;
+    window.verb = randomLine;
 };
 verbrequest.open( 'GET', 'verbs.txt', true );
 verbrequest.send();
@@ -41,7 +42,7 @@ nounrequest.onload = function() {
     var randomLine = fileContentLines[ randomLineIndex ];
 
     // add the random line in a div
-    noun = randomLine;
+    window.noun = randomLine;
 };
 nounrequest.open( 'GET', 'nouns.txt', true );
 nounrequest.send();
@@ -56,9 +57,14 @@ function resnafu(){
 	</script>
 </head>
 <body>
-<h1>This Really <script type="text/javascript">document.write(verb);</script> my <script type="text/javascript">document.write(noun);</script></h1>
-<div id="noun"></div>
-<button onclick="resnafu()">Click me!</button>
+<div class="header">
+	<h1><center>Conrad Menchine's Snafu Coaxer</center></h1>
+	<h2><center>With any luck, this'll REALLY coax your snafu</center></h2>
+</div>
+<div id="snafu">
+<h2><center>This Really <script type="text/javascript">document.write(verb);</script> my <script type="text/javascript">document.write(noun);</script></center></h2>
 
+<center><button onclick="resnafu()">Click me!</button></center>
+</div>
 </body>
 </html>

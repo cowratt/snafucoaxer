@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Patua+One|Roboto:900');
+.header{
+	margin: 0px;
+	padding-top: 4em;
+	color: #3a3a3a;
+	background-color: #81ef91;
+	padding-bottom: 8em;
+}
+.header h1{
+	font-family: 'Patua One', cursive;
+	font-size: 4em;
+}
+.header h2{
+	color: #515151;
+}
+body{
+	margin: 0px;
+}
+h2{
+	font-family: 'Roboto', sans-serif;
+	font-size: 2em;
+}
