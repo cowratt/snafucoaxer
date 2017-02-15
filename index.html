@@ -3,8 +3,10 @@
 <head>
 	<title>SNAFU COAXER</title>
 	<script type="text/javascript">
-var request = new XMLHttpRequest();
-request.onload = function() {
+
+
+var verbrequest = new XMLHttpRequest();
+verbrequest.onload = function() {
     // get the file contents
     var fileContent = this.responseText;
     // split into lines
@@ -15,16 +17,41 @@ request.onload = function() {
     var randomLine = fileContentLines[ randomLineIndex ];
 
     // add the random line in a div
-    document.getElementById( 'random-phrase' ).innerHTML = randomLine;
+    document.getElementById( 'verb' ).innerHTML = randomLine;
 };
-request.open( 'GET', 'nouns.txt', true );
-request.send();
+verbrequest.open( 'GET', 'verbs.txt', true );
+verbrequest.send();
+
+var nounrequest = new XMLHttpRequest();
+nounrequest.onload = function() {
+    // get the file contents
+    var fileContent = this.responseText;
+    // split into lines
+    var fileContentLines = fileContent.split( '\n' );
+    // get a random index (line number)
+    var randomLineIndex = Math.floor( Math.random() * fileContentLines.length );
+    // extract the value
+    var randomLine = fileContentLines[ randomLineIndex ];
+
+    // add the random line in a div
+    document.getElementById( 'noun' ).innerHTML = randomLine;
+};
+nounrequest.open( 'GET', 'nouns.txt', true );
+nounrequest.send();
+
+function resnafu(){
+	nounrequest.onload();
+	verbrequest.onload();
+}
+
+
+
 	</script>
 </head>
 <body>
-<h1>This Really <script type="text/javascript">document.write(Date());</script></h1>
-<div id="random-phrase"></div>
-<button onclick="request.onload()">Click me!</button>
+<h1>This Really <div id="verb"> </div> my <div id="noun"></div></h1>
+<div id="noun"></div>
+<button onclick="resnafu()">Click me!</button>
 
 </body>
 </html>
