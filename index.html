@@ -17,10 +17,13 @@ verbrequest.onload = function() {
     var randomLineIndex = Math.floor( Math.random() * fileContentLines.length );
     // extract the value
     var randomLine = fileContentLines[ randomLineIndex ];
-    if(randomLine.charAt(randomLine.length) == 's'){
+    if(randomLine.charAt(randomLine.length - 1) == 's' || randomLine.charAt(randomLine.length - 1) == 'h'){
     	randomLine += "es";
     }
-    else if(randomLine.charAt(randomLine.length) == 'y'){
+    else if(randomLine.charAt(randomLine.length - 1) == 'y'){
+    	
+    	var new = randomLine.substring(randomLine.length,randomLine.length-1)
+    	randomLine = new;
     	randomLine += "ies";
     }
     else{
